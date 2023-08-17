@@ -7,14 +7,13 @@
 */
 int main(void)
 {
-	char putchar[10] = "_putchar";
+        char putchar[10] = "_putchar";
 
-	int i;
+        int i;
 
-	for (i = 0; i < 8; i++)
-	{
-		_putchar(putchar[i]);
-	}
-	_putchar(10);
-	return (0);
-}
+        for (i = 0; i < 8; i++)
+        {
+                _putchar(putchar[i]);
+        }
+        _putchar(10);
+        return (0);
