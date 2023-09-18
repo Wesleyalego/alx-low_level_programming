@@ -1,12 +1,10 @@
 #include "dog.h"
+#include <stdlib.h>
 
 /**
- * free_dog - frees a memory block of type dog_t
- * @d: address to the memory block to be freed
- *
- * Return: void
+ * free_dog -entry point
+ * @d: entry structure with pointer
  */
-
 void free_dog(dog_t *d)
 {
 	if (d != NULL)
