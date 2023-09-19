@@ -1,45 +1,36 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
- * main - entry point
- * @argc: arguments number
- * @argv: double pointer to arguments
- * Return: O for success
- */
+ * main - Entry point
+ * @argc: the number of the parameters
+ * @argv: the parameters in the case the number to be calculated.
+(* a blank line
+* Description: this program is the enttry point for a calculator)?
+(* section header: 3-calc.h)*
+* Return: 0 in success
+*/
 int main(int argc, char *argv[])
 {
-	/* Variables for the two entry numbers */
-	int num1 = 0, num2 = 0, calc = 0;
-	/* If arguments is wrong */
-	if (argc < 4)
+	int n1, n2, result;
+	int (*p)(int, int);
+
+	if (argc < 4 || argc > 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	/* convert arguments to numbers */
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
 
-	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
+	n1 = atoi(argv[1]);
+	n2 = atoi(argv[3]);
+
+	p = get_op_func(argv[2]);
+
+	if (p == NULL)
 	{
 		printf("Error\n");
-		exit(100);
+		exit(99);
 	}
-	switch (argv[2][0])
-	{
-		case '+':
-		case '-':
-		case '*':
-		case '/':
-		case '%':
-			calc = (*get_op_func(argv[2]))(num1, num2);
-			printf("%d\n", calc);
-		break;
-		default:
-			printf("Error\n");
-			exit(99);
-	}
-	/* Print operation */
+	result = p(n1, n2);
+
+	printf("%d\n", result);
 	return (0);
 }
